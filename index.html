@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Ambyris Paris — Maison de Parfum</title>
+<meta name="description" content="Ambyris Paris — Maison de parfum de luxe. Découvrez notre collection exclusive : Iris Noir, Ambre Intemporel et Éther."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #2a2d32;
+    --bg2: #242629;
+    --bg3: #1e2023;
+    --text: #e2e0db;
+    --text2: rgba(220,215,205,0.55);
+    --text3: rgba(200,197,188,0.32);
+    --accent: #c9c5bc;
+    --border: rgba(255,255,255,0.07);
+    --border2: rgba(200,197,188,0.18);
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: 'Montserrat', sans-serif; font-weight: 300; overflow-x: hidden; }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--bg3); }
+  ::-webkit-scrollbar-thumb { background: rgba(200,197,188,0.2); border-radius: 2px; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(42,45,50,0.92); backdrop-filter: blur(20px);
+    border-bottom: 0.5px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1rem 3rem;
+    transition: padding 0.3s;
+  }
+  nav.scrolled { padding: 0.75rem 3rem; }
+  .nav-logo img { height: 40px; width: auto; object-fit: contain; }
+  .nav-logo span { font-family: 'Cormorant Garamond', serif; font-size: 22px; letter-spacing: 8px; color: var(--accent); font-weight: 300; display: none; }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { font-size: 10px; letter-spacing: 3px; color: var(--text3); text-decoration: none; text-transform: uppercase; transition: color 0.3s; }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 8rem 2rem 5rem; text-align: center;
+    position: relative; overflow: hidden;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .hero-particles { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+  .particle {
+    position: absolute; width: 1px; height: 1px;
+    background: var(--accent); border-radius: 50%;
+    animation: floatUp linear infinite; opacity: 0;
+  }
+  @keyframes floatUp {
+    0% { transform: translateY(100vh); opacity: 0; }
+    10% { opacity: 0.5; }
+    90% { opacity: 0.2; }
+    100% { transform: translateY(-5vh); opacity: 0; }
+  }
+  .hero-logo { height: 140px; width: auto; object-fit: contain; margin-bottom: 2.5rem; animation: fadeUp 1.2s ease both; }
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(56px, 10vw, 100px);
+    letter-spacing: 18px; color: var(--text);
+    font-weight: 300; line-height: 1;
+    animation: fadeUp 1.2s ease 0.15s both;
+    margin-bottom: 0.5rem;
+  }
+  .hero-sub {
+    font-size: 10px; letter-spacing: 7px; color: var(--text3);
+    text-transform: uppercase; margin-bottom: 2rem;
+    animation: fadeUp 1.2s ease 0.3s both;
+  }
+  .hero-tagline {
+    font-family: 'Cormorant Garamond', serif; font-size: 19px;
+    font-style: italic; color: rgba(200,197,188,0.48);
+    letter-spacing: 2px; margin-bottom: 3.5rem;
+    animation: fadeUp 1.2s ease 0.45s both;
+  }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; animation: fadeUp 1.2s ease 0.6s both; }
+  .hero-scroll { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; animation: fadeUp 1.2s ease 0.9s both; }
+  .hero-scroll span { font-size: 9px; letter-spacing: 4px; color: var(--text3); text-transform: uppercase; }
+  .scroll-bar { width: 1px; height: 45px; background: linear-gradient(to bottom, rgba(200,197,188,0.4), transparent); animation: scrollPulse 2s ease-in-out infinite; }
+  @keyframes scrollPulse { 0%,100%{opacity:0.3} 50%{opacity:1} }
+  @keyframes fadeUp { from { opacity:0; transform: translateY(24px); } to { opacity:1; transform: translateY(0); } }
+
+  /* BUTTONS */
+  .btn-primary {
+    font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--bg); background: var(--accent);
+    border: none; padding: 14px 40px; cursor: pointer;
+    font-family: 'Montserrat', sans-serif; font-weight: 300;
+    transition: background 0.3s, transform 0.2s;
+  }
+  .btn-primary:hover { background: var(--text); transform: translateY(-1px); }
+  .btn-ghost {
+    font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+    color: rgba(200,197,188,0.6); background: transparent;
+    border: 0.5px solid rgba(200,197,188,0.22); padding: 14px 40px;
+    cursor: pointer; font-family: 'Montserrat', sans-serif; font-weight: 300;
+    transition: all 0.3s;
+  }
+  .btn-ghost:hover { border-color: rgba(200,197,188,0.55); color: var(--accent); transform: translateY(-1px); }
+
+  /* SECTIONS */
+  section { padding: 6rem 3rem; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label { font-size: 9px; letter-spacing: 5px; color: var(--text3); text-transform: uppercase; margin-bottom: 0.8rem; }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 4vw, 50px); font-weight: 300; color: var(--text); letter-spacing: 3px; margin-bottom: 1rem; line-height: 1.2; }
+  .divider { width: 36px; height: 0.5px; background: var(--border2); margin-bottom: 2.5rem; }
+
+  /* HISTOIRE */
+  .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .story-text p { font-size: 14px; line-height: 2; color: var(--text2); margin-bottom: 1.2rem; }
+  .ing-pills { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 2rem; }
+  .pill { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--text3); border: 0.5px solid rgba(200,197,188,0.14); padding: 6px 16px; transition: all 0.3s; }
+  .pill:hover { color: var(--accent); border-color: rgba(200,197,188,0.35); }
+  .story-visual { display: flex; align-items: center; justify-content: center; }
+  .orbital { width: 280px; height: 280px; position: relative; display: flex; align-items: center; justify-content: center; }
+  .orbital-ring { position: absolute; border-radius: 50%; border: 0.5px solid rgba(200,197,188,0.1); }
+  .orbital-ring:nth-child(1) { inset: 0; animation: rotate 25s linear infinite; }
+  .orbital-ring:nth-child(2) { inset: 28px; animation: rotate 18s linear infinite reverse; border-color: rgba(200,197,188,0.06); }
+  .orbital-ring:nth-child(3) { inset: 56px; animation: rotate 12s linear infinite; border-color: rgba(200,197,188,0.04); }
+  @keyframes rotate { to { transform: rotate(360deg); } }
+  .orbital-center { text-align: center; font-family: 'Cormorant Garamond', serif; z-index: 1; }
+  .orbital-center span { display: block; font-size: 12px; letter-spacing: 5px; color: var(--text3); text-transform: uppercase; line-height: 2.5; }
+  .orbital-center em { font-size: 18px; color: rgba(200,197,188,0.16); display: block; }
+
+  /* COLLECTION */
+  .col-section { background: var(--bg2); border-top: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border); }
+  .col-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; }
+  .parfum-card {
+    background: rgba(255,255,255,0.02); border: 0.5px solid var(--border);
+    overflow: hidden; cursor: pointer;
+    transition: transform 0.4s ease, border-color 0.4s ease;
+  }
+  .parfum-card:hover { transform: translateY(-8px); border-color: rgba(200,197,188,0.22); }
+  .card-img-wrap { position: relative; overflow: hidden; height: 280px; }
+  .card-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 0.6s ease, filter 0.4s ease; filter: brightness(0.88); }
+  .parfum-card:hover .card-img-wrap img { transform: scale(1.04); filter: brightness(1); }
+  .card-genre {
+    position: absolute; top: 1.2rem; left: 1.2rem;
+    font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--bg); background: var(--accent);
+    padding: 4px 12px;
+  }
+  .card-body { padding: 1.8rem 1.6rem 2rem; }
+  .card-name { font-family: 'Cormorant Garamond', serif; font-size: 24px; letter-spacing: 2px; color: var(--text); font-weight: 300; margin-bottom: 0.3rem; }
+  .card-type { font-size: 9px; letter-spacing: 3px; color: var(--text3); text-transform: uppercase; margin-bottom: 1.4rem; padding-bottom: 1.2rem; border-bottom: 0.5px solid var(--border); }
+  .pyr-row { margin-bottom: 0.7rem; }
+  .pyr-label { font-size: 9px; letter-spacing: 3px; color: var(--text3); text-transform: uppercase; margin-bottom: 3px; }
+  .pyr-notes { font-size: 12px; color: rgba(200,197,188,0.45); line-height: 1.6; }
+  .card-price { font-size: 13px; letter-spacing: 2px; color: rgba(200,197,188,0.5); border-top: 0.5px solid var(--border); padding-top: 1.2rem; margin-top: 1.2rem; display: flex; justify-content: space-between; align-items: center; }
+  .card-cta { font-size: 9px; letter-spacing: 2px; color: var(--text3); text-transform: uppercase; text-decoration: none; transition: color 0.3s; }
+  .parfum-card:hover .card-cta { color: var(--accent); }
+
+  /* INGREDIENTS */
+  .ing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  .ing-card { background: rgba(255,255,255,0.02); border: 0.5px solid var(--border); padding: 2.2rem 1.8rem; transition: border-color 0.3s, transform 0.3s; }
+  .ing-card:hover { border-color: rgba(200,197,188,0.2); transform: translateY(-3px); }
+  .ing-icon { font-size: 22px; color: rgba(200,197,188,0.22); margin-bottom: 1.2rem; }
+  .ing-name { font-family: 'Cormorant Garamond', serif; font-size: 20px; letter-spacing: 2px; color: var(--text); font-weight: 300; margin-bottom: 0.7rem; }
+  .ing-desc { font-size: 12px; color: var(--text2); line-height: 1.8; }
+
+  /* PHILOSOPHIE */
+  .phil-section { background: var(--bg3); border-top: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border); }
+  .phil-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 3rem; }
+  .phil-item { padding: 2.5rem 2rem; border-right: 0.5px solid var(--border); text-align: center; }
+  .phil-item:last-child { border-right: none; }
+  .phil-number { font-family: 'Cormorant Garamond', serif; font-size: 48px; color: rgba(200,197,188,0.08); font-weight: 300; line-height: 1; margin-bottom: 1rem; }
+  .phil-title { font-family: 'Cormorant Garamond', serif; font-size: 18px; letter-spacing: 2px; color: var(--text); font-weight: 300; margin-bottom: 0.8rem; }
+  .phil-text { font-size: 12px; color: var(--text2); line-height: 1.8; }
+
+  /* CONTACT */
+  .contact-section { background: var(--bg2); }
+  .contact-inner { max-width: 560px; margin: 0 auto; text-align: center; }
+  .contact-inner p { font-size: 14px; color: var(--text2); line-height: 1.9; margin-bottom: 2.5rem; }
+  .input-row { display: flex; }
+  .email-input {
+    flex: 1; background: rgba(255,255,255,0.04);
+    border: 0.5px solid rgba(255,255,255,0.1);
+    padding: 14px 20px; color: var(--text);
+    font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 300;
+    outline: none; transition: border-color 0.3s;
+  }
+  .email-input::placeholder { color: rgba(200,197,188,0.2); letter-spacing: 1px; }
+  .email-input:focus { border-color: rgba(200,197,188,0.3); }
+  .sub-msg { font-size: 10px; letter-spacing: 2px; color: rgba(200,197,188,0.4); min-height: 20px; margin-top: 0.8rem; }
+
+  /* FOOTER */
+  footer {
+    padding: 3rem 3rem;
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 0.5px solid var(--border);
+    background: var(--bg3);
+  }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 15px; letter-spacing: 6px; color: rgba(200,197,188,0.22); }
+  .footer-links { display: flex; gap: 2rem; }
+  .footer-links a { font-size: 9px; letter-spacing: 2px; color: rgba(200,197,188,0.2); text-decoration: none; text-transform: uppercase; transition: color 0.3s; }
+  .footer-links a:hover { color: var(--accent); }
+  .footer-copy { font-size: 9px; letter-spacing: 2px; color: rgba(200,197,188,0.15); }
+
+  /* REVEAL ANIMATION */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 4rem 1.5rem; }
+    .story-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .orbital { display: none; }
+    .col-grid { grid-template-columns: 1fr; }
+    .ing-grid { grid-template-columns: 1fr 1fr; }
+    .phil-grid { grid-template-columns: 1fr; }
+    .phil-item { border-right: none; border-bottom: 0.5px solid var(--border); }
+    footer { flex-direction: column; gap: 1.5rem; text-align: center; }
+    .footer-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="nav-logo">
+    <img src="IMG_9281.PNG" alt="Ambyris" onerror="this.style.display='none';document.querySelector('.nav-logo span').style.display='block'"/>
+    <span>AMBYRIS</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#histoire">Histoire</a></li>
+    <li><a href="#collection">Collection</a></li>
+    <li><a href="#ingredients">Ingrédients</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="hero-particles" id="particles"></div>
+  <img class="hero-logo" src="IMG_9281.PNG" alt="Ambyris" onerror="this.style.display='none'"/>
+  <h1 class="hero-name">AMBYRIS</h1>
+  <p class="hero-sub">Paris · Maison de Parfum</p>
+  <p class="hero-tagline">L'âme de l'ambre. L'élégance de l'iris.</p>
+  <div class="hero-btns">
+    <button class="btn-primary" onclick="document.getElementById('collection').scrollIntoView({behavior:'smooth'})">Découvrir la collection</button>
+    <button class="btn-ghost" onclick="document.getElementById('histoire').scrollIntoView({behavior:'smooth'})">Notre histoire</button>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-bar"></div>
+  </div>
+</section>
+
+<!-- HISTOIRE -->
+<section id="histoire">
+  <div class="section-inner">
+    <div class="story-grid">
+      <div class="story-text reveal">
+        <div class="section-label">Notre histoire</div>
+        <h2 class="section-title">Né de deux<br>matières rares</h2>
+        <div class="divider"></div>
+        <p>Ambyris est née d'une obsession pour deux ingrédients d'exception : l'ambre, chaleureux et enveloppant, et l'iris, poudré et mystérieux. Deux âmes fusionnées pour créer quelque chose d'inédit.</p>
+        <p>Chaque fragrance est conçue à Paris, avec des matières premières sélectionnées pour leur intensité et leur longévité. Nous créons pour ceux qui refusent de passer inaperçus.</p>
+        <p>Ambyris n'est pas une simple marque de parfum — c'est une invitation à vivre dans l'extraordinaire, à porter une signature qui vous précède et vous définit.</p>
+        <div class="ing-pills">
+          <span class="pill">Ambre</span>
+          <span class="pill">Iris</span>
+          <span class="pill">Cuir</span>
+          <span class="pill">Vanille</span>
+          <span class="pill">Santal</span>
+          <span class="pill">Fève tonka</span>
+        </div>
+      </div>
+      <div class="story-visual reveal">
+        <div class="orbital">
+          <div class="orbital-ring"></div>
+          <div class="orbital-ring"></div>
+          <div class="orbital-ring"></div>
+          <div class="orbital-center">
+            <span>Ambre</span>
+            <em>✦</em>
+            <span>Iris</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHIE -->
+<section class="phil-section">
+  <div class="section-inner">
+    <div class="section-label reveal">Notre philosophie</div>
+    <h2 class="section-title reveal">L'excellence<br>à chaque détail</h2>
+    <div class="divider reveal"></div>
+    <div class="phil-grid">
+      <div class="phil-item reveal">
+        <div class="phil-number">01</div>
+        <div class="phil-title">Matières premières</div>
+        <p class="phil-text">Seules les matières premières les plus nobles entrent dans nos compositions. Chaque ingrédient est sélectionné pour sa pureté et son intensité.</p>
+      </div>
+      <div class="phil-item reveal">
+        <div class="phil-number">02</div>
+        <div class="phil-title">Savoir-faire parisien</div>
+        <p class="phil-text">Conçues à Paris, nos fragrances héritent d'une tradition parfumière unique au monde, sublimée par une vision contemporaine et audacieuse.</p>
+      </div>
+      <div class="phil-item reveal">
+        <div class="phil-number">03</div>
+        <div class="phil-title">Signature unique</div>
+        <p class="phil-text">Chaque flacon Ambyris est une déclaration. Une fragrance qui vous appartient, qui raconte votre histoire, qui laisse une trace inoubliable.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COLLECTION -->
+<section class="col-section" id="collection">
+  <div class="section-inner">
+    <div class="section-label reveal">Collection</div>
+    <h2 class="section-title reveal">Trois fragrances,<br>une signature</h2>
+    <div class="divider reveal"></div>
+    <div class="col-grid">
+
+      <div class="parfum-card reveal">
+        <div class="card-img-wrap">
+          <img src="25451596-2681-4201-BDBC-05A8AADAA610.PNG" alt="Iris Noir"/>
+          <div class="card-genre">Homme</div>
+        </div>
+        <div class="card-body">
+          <div class="card-name">Iris Noir</div>
+          <div class="card-type">Eau de Parfum · 50ml</div>
+          <div class="pyr-row"><div class="pyr-label">Tête</div><div class="pyr-notes">Poivre noir · Gingembre · Cardamome</div></div>
+          <div class="pyr-row"><div class="pyr-label">Cœur</div><div class="pyr-notes">Iris poudrée · Vétiver · Cèdre de Virginie</div></div>
+          <div class="pyr-row"><div class="pyr-label">Fond</div><div class="pyr-notes">Cuir fumé · Ambre gris · Santal · Fève tonka</div></div>
+          <div class="card-price"><span>À partir de 95 €</span><a class="card-cta" href="#contact">Découvrir →</a></div>
+        </div>
+      </div>
+
+      <div class="parfum-card reveal">
+        <div class="card-img-wrap">
+          <img src="IMG_2248.PNG" alt="Ambre Intemporel"/>
+          <div class="card-genre">Femme</div>
+        </div>
+        <div class="card-body">
+          <div class="card-name">Ambre Intemporel</div>
+          <div class="card-type">Eau de Parfum · 50ml</div>
+          <div class="pyr-row"><div class="pyr-label">Tête</div><div class="pyr-notes">Bergamote · Poire dorée · Fleur d'oranger</div></div>
+          <div class="pyr-row"><div class="pyr-label">Cœur</div><div class="pyr-notes">Ambre chaud · Iris crémeuse · Rose de Mai · Jasmin</div></div>
+          <div class="pyr-row"><div class="pyr-label">Fond</div><div class="pyr-notes">Benjoin · Musc blanc · Vanille · Caramel · Santal</div></div>
+          <div class="card-price"><span>À partir de 95 €</span><a class="card-cta" href="#contact">Découvrir →</a></div>
+        </div>
+      </div>
+
+      <div class="parfum-card reveal">
+        <div class="card-img-wrap">
+          <img src="5C89D429-872C-4F94-92EB-992F5D97875D.PNG" alt="Éther"/>
+          <div class="card-genre">Mixte</div>
+        </div>
+        <div class="card-body">
+          <div class="card-name">Éther</div>
+          <div class="card-type">Eau de Parfum · 50ml</div>
+          <div class="pyr-row"><div class="pyr-label">Tête</div><div class="pyr-notes">Bergamote dorée · Mandarine · Poivre rose</div></div>
+          <div class="pyr-row"><div class="pyr-label">Cœur</div><div class="pyr-notes">Amande douce · Iris légère · Fleur de tiaré</div></div>
+          <div class="pyr-row"><div class="pyr-label">Fond</div><div class="pyr-notes">Cuir doux · Vanille · Ambre solaire · Fève tonka · Musc blanc</div></div>
+          <div class="card-price"><span>À partir de 95 €</span><a class="card-cta" href="#contact">Découvrir →</a></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- INGREDIENTS -->
+<section id="ingredients">
+  <div class="section-inner">
+    <div class="section-label reveal">Ingrédients</div>
+    <h2 class="section-title reveal">L'art des<br>matières nobles</h2>
+    <div class="divider reveal"></div>
+    <div class="ing-grid">
+      <div class="ing-card reveal">
+        <div class="ing-icon">◈</div>
+        <div class="ing-name">Ambre</div>
+        <p class="ing-desc">Résine fossile aux facettes chaudes et sensuelles. L'ambre enveloppe la peau d'une chaleur dorée et persistante, signature absolue de la maison.</p>
+      </div>
+      <div class="ing-card reveal">
+        <div class="ing-icon">❋</div>
+        <div class="ing-name">Iris</div>
+        <p class="ing-desc">Extraite du rhizome séché après trois ans de maturation, l'iris déploie ses notes poudrées et crémeuses. Un ingrédient rare et précieux.</p>
+      </div>
+      <div class="ing-card reveal">
+        <div class="ing-icon">◉</div>
+        <div class="ing-name">Fève Tonka</div>
+        <p class="ing-desc">Douce et vanillée, la fève tonka apporte une profondeur gourmande et une tenue exceptionnelle. Le liant secret de nos fragrances.</p>
+      </div>
+      <div class="ing-card reveal">
+        <div class="ing-icon">◆</div>
+        <div class="ing-name">Cuir</div>
+        <p class="ing-desc">Note animale et sophistiquée, le cuir ancre la fragrance dans un territoire résolument sensuel, évoquant l'élégance brute et masculine.</p>
+      </div>
+      <div class="ing-card reveal">
+        <div class="ing-icon">◇</div>
+        <div class="ing-name">Santal</div>
+        <p class="ing-desc">Bois crémeux et laiteux venu de Mysore. Le santal enveloppe les compositions d'une douceur boisée intemporelle et apaisante.</p>
+      </div>
+      <div class="ing-card reveal">
+        <div class="ing-icon">✦</div>
+        <div class="ing-name">Musc Blanc</div>
+        <p class="ing-desc">Transparent et aérien, le musc blanc est la signature invisible qui prolonge le parfum sur la peau et crée ce sillage unique et addictif.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="section-inner">
+    <div class="contact-inner">
+      <div class="section-label reveal">Contact & Newsletter</div>
+      <h2 class="section-title reveal" style="font-size:clamp(26px,3vw,38px);letter-spacing:2px;">Rejoignez<br>l'univers Ambyris</h2>
+      <div class="divider reveal" style="margin:1.2rem auto 2rem;"></div>
+      <p class="reveal">Soyez les premiers informés de nos nouvelles fragrances, lancements exclusifs et événements privés à Paris.</p>
+      <div class="input-row reveal">
+        <input class="email-input" type="email" placeholder="Votre adresse e-mail" id="emailInput"/>
+        <button class="btn-primary" onclick="subscribe()">S'inscrire</button>
+      </div>
+      <div class="sub-msg" id="subMsg"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">AMBYRIS · PARIS</div>
+  <div class="footer-links">
+    <a href="#histoire">Histoire</a>
+    <a href="#collection">Collection</a>
+    <a href="#ingredients">Ingrédients</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="footer-copy">© 2025 Ambyris · Tous droits réservés</div>
+</footer>
+
+<script>
+  // Particles
+  const pc = document.getElementById('particles');
+  for (let i = 0; i < 40; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.cssText = `left:${Math.random()*100}%;width:${Math.random()<0.3?2:1}px;height:${Math.random()<0.3?2:1}px;animation-duration:${9+Math.random()*14}s;animation-delay:${Math.random()*12}s;`;
+    pc.appendChild(p);
+  }
+
+  // Navbar scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Newsletter
+  function subscribe() {
+    const v = document.getElementById('emailInput').value;
+    const m = document.getElementById('subMsg');
+    if (v && v.includes('@')) {
+      m.style.color = 'rgba(200,197,188,0.6)';
+      m.textContent = '✦  Bienvenue dans l\'univers Ambyris';
+      document.getElementById('emailInput').value = '';
+    } else {
+      m.style.color = 'rgba(200,120,120,0.55)';
+      m.textContent = 'Veuillez entrer une adresse valide';
+    }
+  }
+</script>
+</body>
+</html>

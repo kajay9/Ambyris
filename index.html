@@ -37,10 +37,10 @@ nav.scrolled .nav-links a::after{background:var(--gold);}
 nav.scrolled .nav-cta{color:var(--black);background:var(--gold);}
 nav.scrolled .nav-cta:hover{background:var(--gold3);}
 .lang-switcher{display:flex;align-items:center;gap:0;margin-left:1.5rem;}
-.lang-btn{font-size:9px;letter-spacing:3px;color:var(--text3);background:transparent;border:none;cursor:none;font-family:'Montserrat',sans-serif;font-weight:300;text-transform:uppercase;padding:6px 8px;transition:color 0.3s;}
-.lang-btn.active{color:var(--text);}
-.lang-btn:hover{color:var(--text);}
-.lang-sep{font-size:9px;color:rgba(237,232,223,0.6);}
+.lang-btn{font-size:9px;letter-spacing:3px;color:rgba(255,255,255,0.8);background:transparent;border:none;cursor:none;font-family:'Montserrat',sans-serif;font-weight:300;text-transform:uppercase;padding:6px 8px;transition:color 0.3s;}
+.lang-btn.active{color:#fff;}
+.lang-btn:hover{color:#fff;}
+.lang-sep{font-size:9px;color:rgba(255,255,255,0.3);}
 .hero{height:100vh;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;background:var(--ivory);}
 .hero-slideshow{position:absolute;inset:0;z-index:0;}
 .hero-slide{position:absolute;inset:0;background-size:cover;background-position:center top;opacity:0;transition:opacity 1.5s ease;animation:slideShow 25s infinite;}
@@ -170,13 +170,13 @@ nav.scrolled .nav-cta:hover{background:var(--gold3);}
 .email-input::placeholder{color:rgba(237,232,223,0.6);letter-spacing:2px;}
 .email-input:focus{border-color:rgba(237,232,223,0.6);}
 .sub-msg{font-size:9px;letter-spacing:3px;min-height:20px;text-align:center;}
-footer{background:var(--ivory);border-top:0.5px solid var(--ivory-border);padding:3rem 3.5rem;}
+footer{background:var(--black);border-top:0.5px solid var(--border);padding:3rem 3.5rem;}
 .footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;}
-.footer-logo{font-family:'Cormorant Garamond',serif;font-size:16px;letter-spacing:7px;color:var(--ivory-text);}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:16px;letter-spacing:7px;color:var(--text);}
 .footer-links{display:flex;gap:2.5rem;}
-.footer-links a{font-size:8px;letter-spacing:3px;color:var(--ivory-text2);text-decoration:none;text-transform:uppercase;transition:color 0.3s;}
+.footer-links a{font-size:8px;letter-spacing:3px;color:var(--text2);text-decoration:none;text-transform:uppercase;transition:color 0.3s;}
 .footer-links a:hover{color:var(--text);}
-.footer-copy{font-size:8px;letter-spacing:2px;color:var(--ivory-text2);}
+.footer-copy{font-size:8px;letter-spacing:2px;color:var(--text2);}
 .reveal{opacity:0;transform:translateY(40px);transition:opacity 0.9s ease,transform 0.9s ease;}
 .reveal.visible{opacity:1;transform:translateY(0);}
 .reveal-left{opacity:0;transform:translateX(-40px);transition:opacity 0.9s ease,transform 0.9s ease;}
@@ -348,7 +348,7 @@ footer{background:var(--ivory);border-top:0.5px solid var(--ivory-border);paddin
           <img class="img-flacon" src="5C89D429-872C-4F94-92EB-992F5D97875D.PNG" alt="Éther"/>
           <img class="img-campaign" src="IMG_2268.PNG" alt="Éther"/>
         </div>
-        <div class="pcard-overlay"><div class="pcard-overlay-text" data-translate="overlay-et">Solaire · Unique · Addictif</div></div>
+        <div class="pcard-overlay"><div class="pcard-overlay-text" data-translate="overlay-et">Aérien · Mystérieux · Addictif</div></div>
         <div class="pcard-body">
           <div class="pcard-genre" data-translate="genre-mixte">Mixte</div>
           <div class="pcard-name">Éther</div>
@@ -408,7 +408,7 @@ footer{background:var(--ivory);border-top:0.5px solid var(--ivory-border);paddin
       <h2 class="section-title reveal" style="font-size:clamp(32px,4vw,52px);" data-translate="contact-title">Rejoignez<br>l'univers <em>Ambyris</em></h2>
       <div class="divider reveal" style="margin:1.2rem auto 2.5rem;"></div>
       <p class="reveal" data-translate="contact-p">Soyez les premiers informés de nos nouvelles fragrances, lancements exclusifs et événements privés à Paris.</p>
-      <p class="reveal" style="margin-bottom:1.5rem;font-size:13px;color:rgba(237,232,223,0.6);letter-spacing:2px;">✉ <a href="mailto:contact@ambyris.com" style="color:rgba(237,232,223,0.6);text-decoration:none;transition:color 0.3s;" onmouseover="this.style.color='#b8965a'" onmouseout="this.style.color='rgba(184,150,90,0.6)'">contact@ambyris.com</a></p>
+      <p class="reveal" style="margin-bottom:1.5rem;font-size:13px;color:rgba(237,232,223,0.6);letter-spacing:2px;">✉ <a href="mailto:contact@ambyris.com" style="color:rgba(237,232,223,0.6);text-decoration:none;transition:color 0.3s;" onmouseover="this.style.color='rgba(237,232,223,0.9)'" onmouseout="this.style.color='rgba(184,150,90,0.6)'">contact@ambyris.com</a></p>
       <div class="input-wrap reveal">
         <input class="email-input" type="email" placeholder="Votre adresse e-mail" id="emailInput" data-translate-placeholder="email-placeholder"/>
         <button class="btn-gold" onclick="subscribe()" data-translate="subscribe-btn">S'inscrire</button>
@@ -430,10 +430,36 @@ footer{background:var(--ivory);border-top:0.5px solid var(--ivory-border);paddin
     </div>
     <div style="text-align:right;">
       <div class="footer-copy" data-translate="footer-copy">© 2025 Ambyris · Tous droits réservés</div>
-      <div style="font-size:8px;letter-spacing:2px;color:rgba(237,232,223,0.6);margin-top:4px;"><a href="mailto:contact@ambyris.com" style="color:rgba(237,232,223,0.6);text-decoration:none;">contact@ambyris.com</a></div>
+      <div style="font-size:8px;letter-spacing:2px;color:rgba(237,232,223,0.5);margin-top:4px;"><a href="mailto:contact@ambyris.com" style="color:rgba(237,232,223,0.5);text-decoration:none;">contact@ambyris.com</a></div>
     </div>
   </div>
+  <div style="max-width:1200px;margin:1.5rem auto 0;padding-top:1.5rem;border-top:0.5px solid rgba(255,255,255,0.08);display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;">
+    <a href="#mentions" onclick="showLegal('mentions')" style="font-size:8px;letter-spacing:2px;color:rgba(237,232,223,0.5);text-decoration:none;text-transform:uppercase;transition:color 0.3s;" onmouseover="this.style.color='rgba(237,232,223,0.9)'" onmouseout="this.style.color='rgba(237,232,223,0.5)'">Mentions légales</a>
+    <a href="#privacy" onclick="showLegal('privacy')" style="font-size:8px;letter-spacing:2px;color:rgba(237,232,223,0.5);text-decoration:none;text-transform:uppercase;transition:color 0.3s;" onmouseover="this.style.color='rgba(237,232,223,0.9)'" onmouseout="this.style.color='rgba(237,232,223,0.5)'">Politique de confidentialité</a>
+    <a href="#cgv" onclick="showLegal('cgv')" style="font-size:8px;letter-spacing:2px;color:rgba(237,232,223,0.5);text-decoration:none;text-transform:uppercase;transition:color 0.3s;" onmouseover="this.style.color='rgba(237,232,223,0.9)'" onmouseout="this.style.color='rgba(237,232,223,0.5)'">CGV</a>
+    <a href="#cookies" onclick="showLegal('cookies')" style="font-size:8px;letter-spacing:2px;color:rgba(237,232,223,0.5);text-decoration:none;text-transform:uppercase;transition:color 0.3s;" onmouseover="this.style.color='rgba(237,232,223,0.9)'" onmouseout="this.style.color='rgba(237,232,223,0.5)'">Cookies</a>
+  </div>
 </footer>
+
+<!-- LEGAL MODAL -->
+<div id="legalModal" style="display:none;position:fixed;inset:0;z-index:2000;background:rgba(5,4,4,0.92);backdrop-filter:blur(12px);overflow-y:auto;padding:4rem 2rem;">
+  <div style="max-width:700px;margin:0 auto;background:var(--ivory);padding:3rem;position:relative;">
+    <button onclick="document.getElementById('legalModal').style.display='none'" style="position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;font-size:20px;cursor:pointer;color:var(--ivory-text);font-family:'Cormorant Garamond',serif;">✕</button>
+    <div id="legalContent"></div>
+  </div>
+</div>
+
+<!-- COOKIE BANNER -->
+<div id="cookieBanner" style="position:fixed;bottom:0;left:0;right:0;z-index:1500;background:var(--black2);border-top:0.5px solid rgba(184,150,90,0.2);padding:1.2rem 2.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+  <p style="font-size:11px;color:rgba(237,232,223,0.6);letter-spacing:1px;margin:0;max-width:600px;">
+    Nous utilisons des cookies pour améliorer votre expérience sur ambyris.com. En continuant votre navigation, vous acceptez notre 
+    <a onclick="showLegal('cookies')" style="color:var(--gold);cursor:pointer;text-decoration:underline;">politique de cookies</a>.
+  </p>
+  <div style="display:flex;gap:1rem;">
+    <button onclick="acceptCookies()" style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--black);background:var(--gold);border:none;padding:10px 24px;cursor:pointer;font-family:'Montserrat',sans-serif;font-weight:300;transition:background 0.3s;">Accepter</button>
+    <button onclick="refuseCookies()" style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(237,232,223,0.5);background:transparent;border:0.5px solid rgba(237,232,223,0.2);padding:10px 24px;cursor:pointer;font-family:'Montserrat',sans-serif;font-weight:300;">Refuser</button>
+  </div>
+</div>
 
 <script>
 const cursor=document.getElementById('cursor');
@@ -520,7 +546,7 @@ const translations = {
     'genre-mixte': 'Mixte',
     'overlay-in': 'Sombre · Viril · Inoubliable',
     'overlay-ai': 'Chaud · Enveloppant · Sensuel',
-    'overlay-et': 'Solaire · Unique · Addictif',
+    'overlay-et': 'Aérien · Mystérieux · Addictif',
     'tete': 'Tête',
     'coeur': 'Cœur',
     'fond': 'Fond',
@@ -569,7 +595,7 @@ const translations = {
     'genre-mixte': 'Unisex',
     'overlay-in': 'Dark · Virile · Unforgettable',
     'overlay-ai': 'Warm · Enveloping · Sensual',
-    'overlay-et': 'Solar · Unique · Addictive',
+    'overlay-et': 'Airy · Mysterious · Addictive',
     'tete': 'Top',
     'coeur': 'Heart',
     'fond': 'Base',
@@ -595,6 +621,49 @@ function setLang(lang) {
   });
 }
 
+// COOKIES
+function acceptCookies(){
+  localStorage.setItem('ambyris_cookies','accepted');
+  document.getElementById('cookieBanner').style.display='none';
+}
+function refuseCookies(){
+  localStorage.setItem('ambyris_cookies','refused');
+  document.getElementById('cookieBanner').style.display='none';
+}
+if(localStorage.getItem('ambyris_cookies')){
+  document.getElementById('cookieBanner').style.display='none';
+}
+
+// LEGAL TEXTS
+const legalTexts = {
+  mentions: `<h2 style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:#1a1208;letter-spacing:3px;margin-bottom:1.5rem;">Mentions Légales</h2>
+    <p style="font-size:13px;color:rgba(30,20,10,0.6);line-height:1.9;margin-bottom:1rem;"><strong>Éditeur :</strong> Ambyris Paris</p>
+    <p style="font-size:13px;color:rgba(30,20,10,0.6);line-height:1.9;margin-bottom:1rem;"><strong>Contact :</strong> contact@ambyris.com</p>
+    <p style="font-size:13px;color:rgba(30,20,10,0.6);line-height:1.9;margin-bottom:1rem;"><strong>Site :</strong> ambyris.com</p>
+    <p style="font-size:13px;color:rgba(30,20,10,0.6);line-height:1.9;margin-bottom:1rem;"><strong>Hébergeur :</strong> Vercel Inc., 340 Pine Street, Suite 1200, San Francisco, CA 94104, USA</p>
+    <p style="font-size:13px;color:rgba(30,20,10,0.6);line-height:1.9;">Toute reproduction ou représentation des éléments du site est interdite sans accord préalable d'Ambyris Paris.</p>`,
+  privacy: `<h2 style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:#1a1208;letter-spacing:3px;margin-bottom:1.5rem;">Politique de Confidentialité</h2>
+    <p style="font-size:13px;color:rgba(30,20,10,0.6);line-height:1.9;margin-bottom:1rem;"><strong>Collecte :</strong> Ambyris Paris collecte uniquement les adresses email fournies volontairement via le formulaire newsletter.</p>
+    <p style="font-size:13px;color:rgba(30,20,10,0.6);line-height:1.9;margin-bottom:1rem;"><strong>Utilisation :</strong> Vos données sont utilisées exclusivement pour vous informer de nos nouveautés. Elles ne sont jamais revendues à des tiers.</p>
+    <p style="font-size:13px;color:rgba(30,20,10,0.6);line-height:1.9;margin-bottom:1rem;"><strong>Vos droits :</strong> Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression. Contact : contact@ambyris.com</p>
+    <p style="font-size:13px;color:rgba(30,20,10,0.6);line-height:1.9;"><strong>Désinscription :</strong> À tout moment via contact@ambyris.com</p>`,
+  cgv: `<h2 style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:#1a1208;letter-spacing:3px;margin-bottom:1.5rem;">Conditions Générales de Vente</h2>
+    <p style="font-size:13px;color:rgba(30,20,10,0.6);line-height:1.9;margin-bottom:1rem;"><strong>Produits :</strong> Les parfums sont vendus aux prix indiqués sur le site. Ambyris Paris se réserve le droit de modifier ses prix à tout moment.</p>
+    <p style="font-size:13px;color:rgba(30,20,10,0.6);line-height:1.9;margin-bottom:1rem;"><strong>Livraison :</strong> Expédition sous 3 à 5 jours ouvrés. Frais calculés selon la destination.</p>
+    <p style="font-size:13px;color:rgba(30,20,10,0.6);line-height:1.9;margin-bottom:1rem;"><strong>Retours :</strong> Conformément à l'article L221-18 du Code de la consommation, vous disposez de 14 jours à compter de la réception pour retourner votre commande. Les produits doivent être retournés dans leur état d'origine, <strong>non ouverts et non descellés</strong>. Tout produit ouvert ou descellé ne pourra faire l'objet d'un remboursement pour des raisons d'hygiène.</p>
+    <p style="font-size:13px;color:rgba(30,20,10,0.6);line-height:1.9;"><strong>Contact :</strong> contact@ambyris.com</p>`,
+  cookies: `<h2 style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:#1a1208;letter-spacing:3px;margin-bottom:1.5rem;">Politique de Cookies</h2>
+    <p style="font-size:13px;color:rgba(30,20,10,0.6);line-height:1.9;margin-bottom:1rem;">Le site ambyris.com utilise des cookies pour améliorer votre expérience.</p>
+    <p style="font-size:13px;color:rgba(30,20,10,0.6);line-height:1.9;margin-bottom:1rem;"><strong>Cookies utilisés :</strong><br>— Préférences : mémorisent vos choix (langue, consentement)<br>— Analytiques : mesure d'audience anonyme</p>
+    <p style="font-size:13px;color:rgba(30,20,10,0.6);line-height:1.9;"><strong>Vos choix :</strong> Acceptez ou refusez via la bannière. Modifiez à tout moment dans les paramètres de votre navigateur.</p>`
+};
+
+function showLegal(type){
+  document.getElementById('legalContent').innerHTML = legalTexts[type];
+  document.getElementById('legalModal').style.display='block';
+  document.getElementById('legalModal').scrollTop=0;
+  return false;
+}
 </script>
 </body>
 </html>

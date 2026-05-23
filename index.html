@@ -20,19 +20,19 @@ body{background:var(--black);color:var(--text);font-family:'Montserrat',sans-ser
 ::-webkit-scrollbar{width:3px;}
 ::-webkit-scrollbar-track{background:var(--black);}
 ::-webkit-scrollbar-thumb{background:rgba(184,150,90,0.25);}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.4rem 3.5rem;display:flex;justify-content:space-between;align-items:center;transition:all 0.4s;}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.4rem 3.5rem;display:flex;justify-content:space-between;align-items:center;transition:all 0.4s;background:rgba(0,0,0,0.2);backdrop-filter:blur(10px);}
 nav.scrolled{background:rgba(5,4,4,0.96);backdrop-filter:blur(20px);padding:0.9rem 3.5rem;border-bottom:0.5px solid var(--border);}
 .nav-logo img{height:48px;width:auto;object-fit:contain;}
 .nav-logo-fallback{font-family:'Cormorant Garamond',serif;font-size:22px;letter-spacing:8px;color:var(--ivory-text);font-weight:300;display:none;}
 .nav-links{display:flex;gap:2.5rem;list-style:none;}
-.nav-links a{font-size:9px;letter-spacing:4px;color:var(--ivory-text2);text-decoration:none;text-transform:uppercase;transition:color 0.3s;position:relative;}
+.nav-links a{font-size:9px;letter-spacing:4px;color:rgba(255,255,255,0.85);text-shadow:0 1px 4px rgba(0,0,0,0.5);text-decoration:none;text-transform:uppercase;transition:color 0.3s;position:relative;}
 .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:0.5px;background:var(--ivory-text);transition:width 0.3s;}
 .nav-links a:hover{color:var(--ivory-text);}
 .nav-links a:hover::after{width:100%;}
 nav.scrolled .nav-links a{color:var(--text3);}
 nav.scrolled .nav-links a:hover{color:var(--text);}
 nav.scrolled .nav-links a::after{background:var(--gold);}
-.nav-cta{font-size:9px;letter-spacing:3px;color:#fff;background:var(--ivory-text);border:none;padding:10px 24px;cursor:none;font-family:'Montserrat',sans-serif;font-weight:300;text-transform:uppercase;transition:all 0.3s;}
+.nav-cta{font-size:9px;letter-spacing:3px;color:#fff;background:rgba(0,0,0,0.4);border:0.5px solid rgba(255,255,255,0.4);backdrop-filter:blur(4px);padding:10px 24px;cursor:none;font-family:'Montserrat',sans-serif;font-weight:300;text-transform:uppercase;transition:all 0.3s;}
 .nav-cta:hover{background:var(--gold);color:var(--black);}
 nav.scrolled .nav-cta{color:var(--black);background:var(--gold);}
 nav.scrolled .nav-cta:hover{background:var(--gold3);}
@@ -43,52 +43,50 @@ nav.scrolled .nav-cta:hover{background:var(--gold3);}
 .lang-sep{font-size:9px;color:rgba(237,232,223,0.6);}
 .hero{height:100vh;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;background:var(--ivory);}
 .hero-slideshow{position:absolute;inset:0;z-index:0;}
-.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center top;opacity:0;transition:opacity 1.5s ease;animation:slideShow 15s infinite;}
-.hero-slide:nth-child(1){background-image:url('IMG_2261.PNG');animation-delay:0s;}
-.hero-slide:nth-child(2){background-image:url('IMG_2259.PNG');animation-delay:5s;}
-.hero-slide:nth-child(3){background-image:url('IMG_2268.PNG');animation-delay:10s;}
-.hero-slide::after{content:'';position:absolute;inset:0;background:rgba(245,240,232,0.15);}
-@keyframes slideShow{0%,28%{opacity:1;}33%,95%{opacity:0;}100%{opacity:0;}}
+.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center top;opacity:0;transition:opacity 1.5s ease;animation:slideShow 25s infinite;}
+.hero-slide::after{content:'';position:absolute;inset:0;background:rgba(5,4,4,0.3);}
+@keyframes slideShow{0%,16%{opacity:1;}20%,95%{opacity:0;}100%{opacity:0;}}
 .hero-particles{position:absolute;inset:0;pointer-events:none;z-index:1;}
 .particle{position:absolute;border-radius:50%;animation:floatUp linear infinite;opacity:0;}
 @keyframes floatUp{0%{transform:translateY(100vh);opacity:0;}10%{opacity:0.7;}90%{opacity:0.2;}100%{transform:translateY(-5vh);opacity:0;}}
 .hero-content{position:relative;z-index:2;text-align:center;padding:0 2rem;}
-.hero-eyebrow{font-size:9px;letter-spacing:6px;color:var(--ivory-text3);text-transform:uppercase;margin-bottom:2.5rem;animation:fadeUp 1.4s ease both;}
+.hero-eyebrow{font-size:9px;letter-spacing:6px;color:rgba(255,255,255,0.9);text-shadow:0 1px 8px rgba(0,0,0,0.8);text-transform:uppercase;margin-bottom:2.5rem;animation:fadeUp 1.4s ease both;}
 .hero-logo-img{height:160px;width:auto;max-width:280px;object-fit:contain;margin-bottom:2rem;animation:fadeUp 1.4s ease 0.1s both;}
 @media(max-width:600px){.hero-logo-img{height:90px;max-width:180px;}}
 .hero-logo-watermark{position:absolute;top:80px;right:2rem;z-index:3;opacity:0.85;animation:fadeUp 1.4s ease 0.1s both;}
 .hero-logo-watermark img{height:80px;width:auto;object-fit:contain;}
 @media(max-width:600px){.hero-logo-watermark{top:70px;right:1rem;}.hero-logo-watermark img{height:55px;}}
-.hero-name{font-family:'Cormorant Garamond',serif;font-size:clamp(42px,10vw,120px);letter-spacing:20px;color:var(--ivory-text);font-weight:200;line-height:0.9;animation:fadeUp 1.4s ease 0.2s both;margin-bottom:1rem;}
-.hero-sub{font-size:9px;letter-spacing:8px;color:var(--ivory-text3);text-transform:uppercase;animation:fadeUp 1.4s ease 0.35s both;margin-bottom:2.5rem;}
-.hero-tagline{font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;color:rgba(30,20,10,0.55);letter-spacing:2px;animation:fadeUp 1.4s ease 0.5s both;margin-bottom:4rem;}
+.hero-name{font-family:'Cormorant Garamond',serif;font-size:clamp(42px,10vw,120px);letter-spacing:20px;color:#1a1208;text-shadow:0 2px 15px rgba(255,255,255,0.6);font-weight:200;line-height:0.9;animation:fadeUp 1.4s ease 0.2s both;margin-bottom:1rem;}
+.hero-sub{font-size:9px;letter-spacing:8px;color:rgba(255,255,255,0.85);text-shadow:0 1px 8px rgba(0,0,0,0.8);text-transform:uppercase;animation:fadeUp 1.4s ease 0.35s both;margin-bottom:2.5rem;}
+.hero-tagline{font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;color:rgba(255,255,255,0.9);text-shadow:0 1px 8px rgba(0,0,0,0.8);letter-spacing:2px;animation:fadeUp 1.4s ease 0.5s both;margin-bottom:4rem;}
 .hero-btns{display:flex;gap:1.5rem;justify-content:center;animation:fadeUp 1.4s ease 0.65s both;}
 .hero-scroll{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;animation:fadeUp 1.4s ease 1s both;}
-.hero-scroll span{font-size:8px;letter-spacing:5px;color:var(--ivory-text3);text-transform:uppercase;}
-.scroll-line{width:0.5px;height:50px;background:linear-gradient(to bottom,rgba(30,20,10,0.3),transparent);animation:scrollAnim 2s ease-in-out infinite;}
+.hero-scroll span{font-size:8px;letter-spacing:5px;color:rgba(255,255,255,0.7);text-shadow:0 1px 4px rgba(0,0,0,0.6);text-transform:uppercase;}
+.scroll-line{width:0.5px;height:50px;background:linear-gradient(to bottom,rgba(255,255,255,0.5),transparent);animation:scrollAnim 2s ease-in-out infinite;}
 @keyframes scrollAnim{0%,100%{opacity:0.3;}50%{opacity:1;}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(32px);}to{opacity:1;transform:translateY(0);}}
-.btn-gold{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:#fff;background:var(--ivory-text);border:none;padding:15px 44px;cursor:none;font-family:'Montserrat',sans-serif;font-weight:300;transition:background 0.3s;}
+.btn-gold{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:#fff;background:rgba(0,0,0,0.5);border:0.5px solid rgba(255,255,255,0.5);backdrop-filter:blur(4px);padding:15px 44px;cursor:none;font-family:'Montserrat',sans-serif;font-weight:300;transition:background 0.3s;}
 .btn-gold:hover{background:var(--gold);}
-.btn-outline{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--ivory-text2);background:transparent;border:0.5px solid rgba(30,20,10,0.25);padding:15px 44px;cursor:none;font-family:'Montserrat',sans-serif;font-weight:300;transition:all 0.3s;}
+.btn-outline{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.85);background:transparent;border:0.5px solid rgba(255,255,255,0.35);padding:15px 44px;cursor:none;font-family:'Montserrat',sans-serif;font-weight:300;transition:all 0.3s;}
 .btn-outline:hover{border-color:var(--text);color:var(--text);}
 .marquee-wrap{border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border);padding:1.2rem 0;overflow:hidden;background:var(--black2);}
-.marquee-track{display:flex;gap:4rem;animation:marquee 20s linear infinite;white-space:nowrap;}
-.marquee-track span{font-size:9px;letter-spacing:5px;color:var(--text3);text-transform:uppercase;}
-.marquee-track em{color:var(--text);font-style:normal;}
+.marquee-track{display:flex;gap:4rem;animation:marquee 25s linear infinite;white-space:nowrap;}
+.marquee-track span{font-size:9px;letter-spacing:5px;color:rgba(237,232,223,0.7);text-transform:uppercase;}
+.marquee-track em{color:rgba(237,232,223,0.4);font-style:normal;}
 @keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 .section{padding:8rem 3.5rem;}
 .section.ivory{background:var(--ivory);}
 .section.ivory .section-label{color:var(--ivory-text3);}
+.section.ivory .section-label{color:var(--ivory-text3);}
 .section.ivory .section-title{color:var(--ivory-text);}
-.section.ivory .section-title em{color:var(--text);}
-.section.ivory .divider{background:var(--gold);opacity:0.4;}
+.section.ivory .section-title em{color:var(--ivory-text);}
+.section.ivory .divider{background:var(--ivory-text);opacity:0.3;}
 .section.ivory .histoire-text p{color:var(--ivory-text2);}
 .section.ivory .pill{color:var(--ivory-text3);border-color:var(--ivory-border);}
-.section.ivory .pill:hover{color:var(--text);border-color:rgba(237,232,223,0.6);}
-.section.ivory .orb-ring{border-color:rgba(237,232,223,0.6);}
-.section.ivory .orb-center span{color:rgba(100,80,40,0.4);}
-.section.ivory .orb-center em{color:rgba(237,232,223,0.6);}
+.section.ivory .pill:hover{color:var(--ivory-text);border-color:rgba(30,20,10,0.4);}
+.section.ivory .orb-ring{border-color:rgba(30,20,10,0.1);}
+.section.ivory .orb-center span{color:rgba(30,20,10,0.3);}
+.section.ivory .orb-center em{color:rgba(30,20,10,0.15);}
 .section-inner{max-width:1200px;margin:0 auto;}
 .section-label{font-size:8px;letter-spacing:6px;color:var(--text3);text-transform:uppercase;margin-bottom:1rem;}
 .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,64px);font-weight:200;color:var(--text);letter-spacing:4px;line-height:1.1;margin-bottom:1.2rem;}
@@ -110,13 +108,17 @@ nav.scrolled .nav-cta:hover{background:var(--gold3);}
 .orb-center span{display:block;font-size:11px;letter-spacing:5px;color:rgba(237,232,223,0.6);text-transform:uppercase;line-height:2.8;}
 .orb-center em{font-size:16px;color:rgba(237,232,223,0.6);display:block;}
 .phil-section{background:var(--ivory);border-top:0.5px solid var(--ivory-border);border-bottom:0.5px solid var(--ivory-border);}
+.phil-section .section-label{color:var(--ivory-text3);}
+.phil-section .section-title{color:var(--ivory-text);}
+.phil-section .section-title em{color:var(--ivory-text);}
+.phil-section .divider{background:var(--ivory-text);opacity:0.3;}
 .phil-grid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:4rem;}
 .phil-item{padding:3rem 2.5rem;border-right:0.5px solid var(--ivory-border);transition:background 0.4s;}
 .phil-item:last-child{border-right:none;}
 .phil-item:hover{background:rgba(184,150,90,0.05);}
-.phil-num{font-family:'Cormorant Garamond',serif;font-size:72px;color:rgba(237,232,223,0.6);font-weight:200;line-height:1;margin-bottom:1.5rem;}
+.phil-num{font-family:'Cormorant Garamond',serif;font-size:72px;color:rgba(30,20,10,0.15);font-weight:200;line-height:1;margin-bottom:1.5rem;}
 .phil-title{font-family:'Cormorant Garamond',serif;font-size:22px;letter-spacing:2px;color:var(--ivory-text);font-weight:300;margin-bottom:1rem;}
-.phil-line{width:24px;height:0.5px;background:var(--gold);opacity:0.5;margin-bottom:1.5rem;}
+.phil-line{width:24px;height:0.5px;background:var(--ivory-text);opacity:0.3;margin-bottom:1.5rem;}
 .phil-text{font-size:13px;color:var(--ivory-text2);line-height:1.9;}
 .col-section{background:var(--black3);border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border);}
 .col-section .section-label{color:var(--text3);}
@@ -223,9 +225,11 @@ footer{background:var(--ivory);border-top:0.5px solid var(--ivory-border);paddin
 
 <section class="hero" id="accueil">
   <div class="hero-slideshow">
-    <div class="hero-slide"></div>
-    <div class="hero-slide"></div>
-    <div class="hero-slide"></div>
+    <div class="hero-slide" style="background-image:url('IMG_2261.PNG');animation-delay:0s;"></div>
+    <div class="hero-slide" style="background-image:url('86B724D2-4396-4088-8E58-75FBA23C8655.PNG');animation-delay:5s;"></div>
+    <div class="hero-slide" style="background-image:url('IMG_2268.PNG');animation-delay:10s;"></div>
+    <div class="hero-slide" style="background-image:url('IMG_9330.PNG');animation-delay:15s;"></div>
+    <div class="hero-slide" style="background-image:url('IMG_9328.PNG');animation-delay:20s;"></div>
   </div>
   <div class="hero-particles" id="particles"></div>
   <div class="hero-content">
@@ -243,8 +247,10 @@ footer{background:var(--ivory);border-top:0.5px solid var(--ivory-border);paddin
 
 <div class="marquee-wrap">
   <div class="marquee-track">
-    <span>Ambre</span><em>✦</em><span>Iris</span><em>✦</em><span>Cuir</span><em>✦</em><span>Santal</span><em>✦</em><span>Vanille</span><em>✦</em><span>Fève Tonka</span><em>✦</em><span>Rose de Mai</span><em>✦</em><span>Bergamote</span><em>✦</em><span>Musc Blanc</span><em>✦</em>
-    <span>Ambre</span><em>✦</em><span>Iris</span><em>✦</em><span>Cuir</span><em>✦</em><span>Santal</span><em>✦</em><span>Vanille</span><em>✦</em><span>Fève Tonka</span><em>✦</em><span>Rose de Mai</span><em>✦</em><span>Bergamote</span><em>✦</em><span>Musc Blanc</span><em>✦</em>
+<span>Ambre</span><em>✦</em><span>Iris</span><em>✦</em><span>Cuir</span><em>✦</em><span>Fève Tonka</span><em>✦</em><span>Musc Blanc</span><em>✦</em><span>Bois de Cachemire</span><em>✦</em><span>Poivre Noir</span><em>✦</em><span>Vétiver</span><em>✦</em><span>Bergamote</span><em>✦</em><span>Rose de Mai</span><em>✦</em><span>Amande Amère</span><em>✦</em><span>Bois de Gaïac</span><em>✦</em><span>Patchouli Rose</span><em>✦</em><span>Jasmin</span><em>✦</em>
+<span>Ambre</span><em>✦</em><span>Iris</span><em>✦</em><span>Cuir</span><em>✦</em><span>Fève Tonka</span><em>✦</em><span>Musc Blanc</span><em>✦</em><span>Bois de Cachemire</span><em>✦</em><span>Poivre Noir</span><em>✦</em><span>Vétiver</span><em>✦</em><span>Bergamote</span><em>✦</em><span>Rose de Mai</span><em>✦</em><span>Amande Amère</span><em>✦</em><span>Bois de Gaïac</span><em>✦</em><span>Patchouli Rose</span><em>✦</em><span>Jasmin</span><em>✦</em>
+    <span>Ambre</span><em>✦</em><span>Iris</span><em>✦</em><span>Cuir</span><em>✦</em><span>Fève Tonka</span><em>✦</em><span>Musc Blanc</span><em>✦</em><span>Bois de Cachemire</span><em>✦</em><span>Poivre Noir</span><em>✦</em><span>Vétiver</span><em>✦</em><span>Bergamote</span><em>✦</em><span>Rose de Mai</span><em>✦</em><span>Amande Amère</span><em>✦</em><span>Bois de Gaïac</span><em>✦</em><span>Patchouli Rose</span><em>✦</em><span>Jasmin</span><em>✦</em>
+    <span>Ambre</span><em>✦</em><span>Iris</span><em>✦</em><span>Cuir</span><em>✦</em><span>Fève Tonka</span><em>✦</em><span>Musc Blanc</span><em>✦</em><span>Bois de Cachemire</span><em>✦</em><span>Poivre Noir</span><em>✦</em><span>Vétiver</span><em>✦</em><span>Bergamote</span><em>✦</em><span>Rose de Mai</span><em>✦</em><span>Amande Amère</span><em>✦</em><span>Bois de Gaïac</span><em>✦</em><span>Patchouli Rose</span><em>✦</em><span>Jasmin</span><em>✦</em>
   </div>
 </div>
 
@@ -260,7 +266,7 @@ footer{background:var(--ivory);border-top:0.5px solid var(--ivory-border);paddin
         <p data-translate="story-p3">Ambyris n'est pas une simple marque de parfum. C'est une invitation à l'extraordinaire, une signature qui vous précède et vous définit.</p>
         <div class="ing-pills">
           <span class="pill">Ambre</span><span class="pill">Iris</span><span class="pill">Cuir</span>
-          <span class="pill">Vanille</span><span class="pill">Santal</span><span class="pill">Tonka</span>
+          <span class="pill">Fève Tonka</span><span class="pill">Musc Blanc</span><span class="pill">Bois de Cachemire</span>
         </div>
       </div>
       <div class="reveal-right">
@@ -323,8 +329,8 @@ footer{background:var(--ivory);border-top:0.5px solid var(--ivory-border);paddin
       </div>
       <div class="pcard reveal">
         <div class="pcard-img-wrap">
-          <img class="img-flacon" src="C3CC7F14-CF1D-4A3C-AB92-B85A2EF494BF.PNG" alt="Ambre Intemporel"/>
-          <img class="img-campaign" src="IMG_2259.PNG" alt="Ambre Intemporel"/>
+          <img class="img-flacon" src="IMG_2346.PNG" alt="Ambre Intemporel"/>
+          <img class="img-campaign" src="86B724D2-4396-4088-8E58-75FBA23C8655.PNG" alt="Ambre Intemporel"/>
         </div>
         <div class="pcard-overlay"><div class="pcard-overlay-text" data-translate="overlay-ai">Chaud · Enveloppant · Sensuel</div></div>
         <div class="pcard-body">
@@ -347,7 +353,7 @@ footer{background:var(--ivory);border-top:0.5px solid var(--ivory-border);paddin
           <div class="pcard-genre" data-translate="genre-mixte">Mixte</div>
           <div class="pcard-name">Éther</div>
           <div class="pcard-type">Eau de Parfum · 50ml</div>
-          <div class="pyr-label" data-translate="tete">Tête</div><div class="pyr-notes">Bergamote · Poivre rose · Lavande légère</div>
+          <div class="pyr-label" data-translate="tete">Tête</div><div class="pyr-notes">Bergamote · Feuille de violette · Poivre rose · Lavande légère</div>
           <div class="pyr-label" data-translate="coeur">Cœur</div><div class="pyr-notes">Amande amère · Racine d'iris · Cuir suède · Vanille sèche</div>
           <div class="pyr-label" data-translate="fond">Fond</div><div class="pyr-notes">Cuir doux · Fève tonka · Bois de cachemire · Ambre chaud · Musc blanc</div>
           <div class="pcard-footer"><span class="pcard-price">50ml — 69 € · 100ml — 115 €</span><div class="pcard-arrow">→</div></div>
@@ -367,8 +373,8 @@ footer{background:var(--ivory);border-top:0.5px solid var(--ivory-border);paddin
       <div class="ing-card reveal"><span class="ing-icon">❋</span><div class="ing-name">Iris</div><p class="ing-desc" data-translate="ing2-desc">Extraite du rhizome séché après trois ans de maturation, l'iris déploie ses notes poudrées et crémeuses. Un ingrédient rare et précieux.</p></div>
       <div class="ing-card reveal"><span class="ing-icon">◉</span><div class="ing-name">Fève Tonka</div><p class="ing-desc" data-translate="ing3-desc">Douce et vanillée, la fève tonka apporte une profondeur gourmande et une tenue exceptionnelle. Le liant secret de nos fragrances.</p></div>
       <div class="ing-card reveal"><span class="ing-icon">◆</span><div class="ing-name">Cuir</div><p class="ing-desc" data-translate="ing4-desc">Note animale et sophistiquée, le cuir ancre la fragrance dans un territoire résolument sensuel, évoquant l'élégance brute et masculine.</p></div>
-      <div class="ing-card reveal"><span class="ing-icon">◇</span><div class="ing-name">Santal</div><p class="ing-desc" data-translate="ing5-desc">Bois crémeux et laiteux venu de Mysore. Le santal enveloppe les compositions d'une douceur boisée intemporelle et apaisante.</p></div>
-      <div class="ing-card reveal"><span class="ing-icon">✦</span><div class="ing-name">Musc Blanc</div><p class="ing-desc" data-translate="ing6-desc">Transparent et aérien, le musc blanc est la signature invisible qui prolonge le parfum sur la peau et crée ce sillage unique et addictif.</p></div>
+      <div class="ing-card reveal"><span class="ing-icon">◇</span><div class="ing-name">Musc Blanc</div><p class="ing-desc" data-translate="ing5-desc">Transparent et aérien, le musc blanc est la signature invisible qui prolonge le parfum sur la peau et crée ce sillage unique et addictif.</p></div>
+      <div class="ing-card reveal"><span class="ing-icon">✦</span><div class="ing-name">Bois de Cachemire</div><p class="ing-desc" data-translate="ing6-desc">Bois précieux aux facettes douces et crémeuses, le bois de cachemire apporte une profondeur boisée unique et une signature moderne à nos compositions.</p></div>
     </div>
   </div>
 </section>
@@ -384,7 +390,7 @@ footer{background:var(--ivory);border-top:0.5px solid var(--ivory-border);paddin
         <div class="campaign-caption"><div class="campaign-genre" data-translate="genre-homme">Homme</div><div class="campaign-name">Iris Noir</div></div>
       </div>
       <div class="campaign-item reveal">
-        <img src="IMG_2259.PNG" alt="Ambre Intemporel"/>
+        <img src="86B724D2-4396-4088-8E58-75FBA23C8655.PNG" alt="Ambre Intemporel"/>
         <div class="campaign-caption"><div class="campaign-genre" data-translate="genre-femme">Femme</div><div class="campaign-name">Ambre Intemporel</div></div>
       </div>
       <div class="campaign-item reveal">
@@ -548,7 +554,7 @@ const translations = {
     'ing2-desc': 'Extracted from dried rhizomes after three years of maturation, iris unfolds its powdery and creamy notes. A rare and precious ingredient.',
     'ing3-desc': 'Sweet and vanilla-like, tonka bean brings gourmand depth and exceptional longevity. The secret binder of our fragrances.',
     'ing4-desc': 'An animal and sophisticated note, leather anchors the fragrance in a resolutely sensual territory, evoking raw, masculine elegance.',
-    'ing5-desc': 'Creamy and milky wood from Mysore. Sandalwood wraps compositions in a timeless, soothing woody softness.',
+    'ing5-desc': 'Creamy and milky wood from Mysore. A precious wood with soft and creamy facets, cashmere wood brings a unique woody depth and a modern signature to our compositions.',
     'ing6-desc': 'Transparent and airy, white musk is the invisible signature that extends the fragrance on the skin and creates that unique, addictive trail.',
     'camp-label': 'Campaign',
     'camp-title': 'The<br><em>Ambyris</em> universe',
